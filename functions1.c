@@ -1,16 +1,24 @@
 #include "main.h"
 
 /************************* PRINT UNSIGNED NUMBER *************************/
+
 /**
- * print_unsigned - Prints an unsigned number
- * @types: List a of arguments
- * @buffer: Buffer array to handle print
- * @flags: Calculates active flags
- * @width: get width
- * @precision: Precision specification
- * @size: Size specifier
- * Return: Number of chars printed.
+ * print_unsigned - Handles the formatting and printing of an unsigned integer.
+ * @types: A va_list containing the variable argument list.
+ * @buffer: A character array where the formatted data is stored.
+ * @flags: Flags for formatting (e.g., left-justify, zero-fill).
+ * @width: Minimum field width for printing.
+ * @precision: Minimum number of digits to be printed (not used).
+ * @size: Size modifier for formatting (e.g., h, l).
+ *
+ * This function retrieves an unsigned integer argument from the va_list,
+ * handles formatting according to specified flags, width, and size, and
+ * writes the formatted unsigned integer to the buffer.
+ *
+ * Return: The number of characters written to the buffer.
  */
+
+
 int print_unsigned(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
 {
@@ -36,16 +44,26 @@ int print_unsigned(va_list types, char buffer[],
 }
 
 /************* PRINT UNSIGNED NUMBER IN OCTAL ****************/
+
 /**
- * print_octal - Prints an unsigned number in octal notation
- * @types: Lista of arguments
- * @buffer: Buffer array to handle print
- * @flags: Calculates active flags
- * @width: get width
- * @precision: Precision specification
- * @size: Size specifier
- * Return: Number of chars printed
+ * print_octal - Handles the formatting and printing of an octal number.
+ * @types: A va_list containing the variable argument list.
+ * @buffer: A character array where the formatted data is stored.
+ * @flags: Flags for formatting (e.g., include octal prefix).
+ * @width: Minimum field width for printing (not used).
+ * @precision: Minimum number of digits to be printed (not used).
+ * @size: Size modifier for formatting (e.g., h, l).
+ *
+ * This function retrieves an unsigned integer argument from the va_list,
+ * handles formatting according to specified flags, and writes the formatted
+ * octal number to the buffer.
+ *
+ * Return: The number of characters written to the buffer.
  */
+
+
+
+
 int print_octal(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
 {
@@ -78,16 +96,25 @@ int print_octal(va_list types, char buffer[],
 }
 
 /************** PRINT UNSIGNED NUMBER IN HEXADECIMAL **************/
+
 /**
- * print_hexadecimal - Prints an unsigned number in hexadecimal notation
- * @types: Lista of arguments
- * @buffer: Buffer array to handle print
- * @flags: Calculates active flags
- * @width: get width
- * @precision: Precision specification
- * @size: Size specifier
- * Return: Number of chars printed
+ * print_hexadecimal - Handles the formatting and
+ *			printing of a hexadecimal number.
+ * @types: A va_list containing the variable argument list.
+ * @buffer: A character array where the formatted data is stored.
+ * @flags: Flags for formatting (e.g., left-justify, zero-fill).
+ * @width: Minimum field width for printing.
+ * @precision: Minimum number of digits to be printed (not used).
+ * @size: Size modifier for formatting (e.g., h, l).
+ *
+ * This function retrieves an unsigned integer argument from the va_list,
+ * handles formatting according to specified flags, and writes the formatted
+ * hexadecimal number (in lowercase) to the buffer.
+ *
+ * Return: The number of characters written to the buffer.
  */
+
+
 int print_hexadecimal(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
 {
@@ -96,16 +123,26 @@ int print_hexadecimal(va_list types, char buffer[],
 }
 
 /************* PRINT UNSIGNED NUMBER IN UPPER HEXADECIMAL **************/
+
 /**
- * print_hexa_upper - Prints an unsigned number in upper hexadecimal notation
- * @types: Lista of arguments
- * @buffer: Buffer array to handle print
- * @flags: Calculates active flags
- * @width: get width
- * @precision: Precision specification
- * @size: Size specifier
- * Return: Number of chars printed
+ * print_hexa_upper - Handles the formatting and printing
+ *			of an uppercase hexadecimal number.
+ * @types: A va_list containing the variable argument list.
+ * @buffer: A character array where the formatted data is stored.
+ * @flags: Flags for formatting (e.g., left-justify, zero-fill).
+ * @width: Minimum field width for printing.
+ * @precision: Minimum number of digits to be printed (not used).
+ * @size: Size modifier for formatting (e.g., h, l).
+ *
+ * This function retrieves an unsigned integer argument from the va_list,
+ * handles formatting according to specified flags, and writes the formatted
+ * hexadecimal number (in uppercase) to the buffer.
+ *
+ * Return: The number of characters written to the buffer.
  */
+
+
+
 int print_hexa_upper(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
 {
@@ -114,19 +151,27 @@ int print_hexa_upper(va_list types, char buffer[],
 }
 
 /************** PRINT HEXX NUM IN LOWER OR UPPER **************/
+
+
 /**
- * print_hexa - Prints a hexadecimal number in lower or upper
- * @types: Lista of arguments
- * @map_to: Array of values to map the number to
- * @buffer: Buffer array to handle print
- * @flags: Calculates active flags
- * @flag_ch: Calculates active flags
- * @width: get width
- * @precision: Precision specification
- * @size: Size specifier
- * @size: Size specification
- * Return: Number of chars printed
+ * print_hexa - Handles the formatting and printing of a hexadecimal number.
+ * @types: A va_list containing the variable argument list.
+ * @map_to: A character array mapping values to hexadecimal characters.
+ * @buffer: A character array where the formatted data is stored.
+ * @flags: Flags for formatting (e.g., include hexadecimal prefix).
+ * @flag_ch: Character to prefix the hexadecimal value (e.g., 'x' or 'X').
+ * @width: Minimum field width for printing (not used).
+ * @precision: Minimum number of digits to be printed (not used).
+ * @size: Size modifier for formatting (e.g., h, l).
+ *
+ * This function retrieves an unsigned integer argument from the va_list,
+ * handles formatting according to specified flags and the mapping array,
+ * and writes the formatted hexadecimal number to the buffer.
+ *
+ * Return: The number of characters written to the buffer.
  */
+
+
 int print_hexa(va_list types, char map_to[], char buffer[],
 	int flags, char flag_ch, int width, int precision, int size)
 {
