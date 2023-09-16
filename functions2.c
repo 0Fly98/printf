@@ -1,16 +1,25 @@
 #include "main.h"
 
 /****************** PRINT POINTER ******************/
+
+
 /**
- * print_pointer - Prints the value of a pointer variable
- * @types: List a of arguments
- * @buffer: Buffer array to handle print
- * @flags: Calculates active flags
- * @width: get width
- * @precision: Precision specification
- * @size: Size specifier
- * Return: Number of chars printed.
+ * print_pointer - Handles the formatting and printing of a pointer address.
+ * @types: A va_list containing the variable argument list.
+ * @buffer: A character array where the formatted data is stored.
+ * @flags: Flags for formatting (e.g., zero-fill, plus sign).
+ * @width: Minimum field width for printing (not used).
+ * @precision: Minimum number of digits to be printed (not used).
+ * @size: Size modifier for formatting (not used).
+ *
+ * This function retrieves a pointer address from the va_list, handles
+ * formatting according to specified flags, and writes the formatted pointer
+ * address to the buffer.
+ *
+ * Return: The number of characters written to the buffer.
  */
+
+
 int print_pointer(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
 {
@@ -53,16 +62,27 @@ int print_pointer(va_list types, char buffer[],
 }
 
 /************************* PRINT NON PRINTABLE *************************/
+
+
 /**
- * print_non_printable - Prints ascii codes in hexa of non printable chars
- * @types: Lista of arguments
- * @buffer: Buffer array to handle print
- * @flags: Calculates active flags
- * @width: get width
- * @precision: Precision specification
- * @size: Size specifier
- * Return: Number of chars printed
+ * print_non_printable - Handles the formatting
+ *			and printing of non-printable characters.
+ * @types: A va_list containing the variable argument list.
+ * @buffer: A character array where the formatted data is stored.
+ * @flags: Flags for formatting (not used).
+ * @width: Minimum field width for printing (not used).
+ * @precision: Minimum number of digits to be printed (not used).
+ * @size: Size modifier for formatting (not used).
+ *
+ * This function retrieves a string argument from the va_list, processes it
+ * to replace non-printable characters with hexadecimal codes, and writes the
+ * formatted string to the buffer.
+ *
+ * Return: The number of characters written to the buffer.
  */
+
+
+
 int print_non_printable(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
 {
@@ -93,16 +113,23 @@ int print_non_printable(va_list types, char buffer[],
 }
 
 /************************* PRINT REVERSE *************************/
+
+
 /**
- * print_reverse - Prints reverse string.
- * @types: Lista of arguments
- * @buffer: Buffer array to handle print
- * @flags: Calculates active flags
- * @width: get width
- * @precision: Precision specification
- * @size: Size specifier
- * Return: Numbers of chars printed
+ * print_reverse - Handles the formatting and printing of a reversed string.
+ * @types: A va_list containing the variable argument list.
+ * @buffer: A character array where the formatted data is stored (not used).
+ * @flags: Flags for formatting (not used).
+ * @width: Minimum field width for printing (not used).
+ * @precision: Minimum number of digits to be printed (not used).
+ * @size: Size modifier for formatting (not used).
+ *
+ * This function retrieves a string argument from the va_list, reverses it,
+ * and writes the reversed string to the standard output.
+ *
+ * Return: The number of characters written to the standard output.
  */
+
 
 int print_reverse(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
@@ -136,16 +163,26 @@ int print_reverse(va_list types, char buffer[],
 	return (count);
 }
 /************************* PRINT A STRING IN ROT13 *************************/
+
 /**
- * print_rot13string - Print a string in rot13.
- * @types: Lista of arguments
- * @buffer: Buffer array to handle print
- * @flags: Calculates active flags
- * @width: get width
- * @precision: Precision specification
- * @size: Size specifier
- * Return: Numbers of chars printed
+ * print_rot13string - Handles the formatting
+ *			and printing of a ROT13-encoded string.
+ * @types: A va_list containing the variable argument list.
+ * @buffer: A character array where the formatted data is stored (not used).
+ * @flags: Flags for formatting (not used).
+ * @width: Minimum field width for printing (not used).
+ * @precision: Minimum number of digits to be printed (not used).
+ * @size: Size modifier for formatting (not used).
+ *
+ * This function retrieves a string argument
+ *			from the va_list, applies ROT13
+ * encoding to the string, and writes the encoded string to the standard output
+ *
+ * Return: The number of characters written to the standard output.
  */
+
+
+
 int print_rot13string(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
 {
