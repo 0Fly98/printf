@@ -1,17 +1,24 @@
 #include "main.h"
 
 /************************* WRITE HANDLE *************************/
+
 /**
- * handle_write_char - Prints a string
- * @c: char types.
- * @buffer: Buffer array to handle print
- * @flags: Calculates active flags.
- * @width: get width.
- * @precision: precision specifier
- * @size: Size specifier
+ * handle_write_char - Handles writing a single character to the buffer.
+ * @c: The character to write.
+ * @buffer: The character array where the data is stored.
+ * @flags: Flags for formatting (e.g., minus, plus, zero-fill).
+ * @width: Minimum field width for printing.
+ * @precision: Minimum number of digits to be printed.
+ * @size: Size modifier for formatting (e.g., long, short).
  *
- * Return: Number of chars printed.
+ * This function writes a single character to the buffer, considering the
+ * specified formatting flags, width, and precision.
+ *
+ * Return: The number of characters written.
  */
+
+
+
 int handle_write_char(char c, char buffer[],
 	int flags, int width, int precision, int size)
 { /* char is stored at left and paddind at buffer's right */
@@ -45,18 +52,25 @@ int handle_write_char(char c, char buffer[],
 }
 
 /************************* WRITE NUMBER *************************/
+
 /**
- * write_number - Prints a string
- * @is_negative: Lista of arguments
- * @ind: char types.
- * @buffer: Buffer array to handle print
- * @flags: Calculates active flags
- * @width: get width.
- * @precision: precision specifier
- * @size: Size specifier
+ * write_number - Writes a number to the buffer.
+ * @is_negative: Flag indicating if the number is negative.
+ * @ind: The index where the number should be written in the buffer.
+ * @buffer: The character array where the data is stored.
+ * @flags: Flags for formatting (e.g., minus, plus, zero-fill).
+ * @width: Minimum field width for printing.
+ * @precision: Minimum number of digits to be printed.
+ * @size: Size modifier for formatting (e.g., long, short).
  *
- * Return: Number of chars printed.
+ * This function writes a number to the buffer, considering the specified
+ * formatting flags, width, and precision. It also handles negative numbers
+ * and additional characters like '+' or '-'.
+ *
+ * Return: The number of characters written.
  */
+
+
 int write_number(int is_negative, int ind, char buffer[],
 	int flags, int width, int precision, int size)
 {
@@ -79,18 +93,22 @@ int write_number(int is_negative, int ind, char buffer[],
 }
 
 /**
- * write_num - Write a number using a bufffer
- * @ind: Index at which the number starts on the buffer
- * @buffer: Buffer
- * @flags: Flags
- * @width: width
- * @prec: Precision specifier
- * @length: Number length
- * @padd: Pading char
- * @extra_c: Extra char
+ * write_num - Writes a number to the buffer.
+ * @ind: The index where the number should be written in the buffer.
+ * @buffer: The character array where the data is stored.
+ * @flags: Flags for formatting (e.g., minus, plus, zero-fill).
+ * @width: Minimum field width for printing.
+ * @prec: Precision value.
+ * @length: The length of the number.
+ * @padd: Padding character (e.g., '0' or ' ').
+ * @extra_c: Additional character (e.g., '+' or '-').
  *
- * Return: Number of printed chars.
+ * This function writes a number to the buffer, considering the specified
+ * formatting flags, width, precision, padding, and additional characters.
+ *
+ * Return: The number of characters written.
  */
+
 int write_num(int ind, char buffer[],
 	int flags, int width, int prec,
 	int length, char padd, char extra_c)
@@ -138,17 +156,22 @@ int write_num(int ind, char buffer[],
 }
 
 /**
- * write_unsgnd - Writes an unsigned number
- * @is_negative: Number indicating if the num is negative
- * @ind: Index at which the number starts in the buffer
- * @buffer: Array of chars
- * @flags: Flags specifiers
- * @width: Width specifier
- * @precision: Precision specifier
- * @size: Size specifier
+ * write_unsgnd - Writes an unsigned number to the buffer.
+ * @is_negative: Flag indicating if the number is negative.
+ * @ind: The index where the number should be written in the buffer.
+ * @buffer: The character array where the data is stored.
+ * @flags: Flags for formatting (e.g., minus, plus, zero-fill).
+ * @width: Minimum field width for printing.
+ * @precision: Minimum number of digits to be printed.
+ * @size: Size modifier for formatting (e.g., long, short).
  *
- * Return: Number of written chars.
+ * This function writes an unsigned number to the buffer, considering the
+ * specified formatting flags, width, and precision. It also handles padding
+ * and additional characters like '+' or '-'.
+ *
+ * Return: The number of characters written.
  */
+
 int write_unsgnd(int is_negative, int ind,
 	char buffer[],
 	int flags, int width, int precision, int size)
@@ -196,18 +219,23 @@ int write_unsgnd(int is_negative, int ind,
 }
 
 /**
- * write_pointer - Write a memory address
- * @buffer: Arrays of chars
- * @ind: Index at which the number starts in the buffer
- * @length: Length of number
- * @width: Wwidth specifier
- * @flags: Flags specifier
- * @padd: Char representing the padding
- * @extra_c: Char representing extra char
- * @padd_start: Index at which padding should start
+ * write_pointer - Writes a pointer to the buffer.
+ * @buffer: The character array where the data is stored.
+ * @ind: The index where the pointer should be written in the buffer.
+ * @length: The length of the pointer.
+ * @width: Minimum field width for printing.
+ * @flags: Flags for formatting (e.g., minus, plus, zero-fill).
+ * @padd: Padding character (e.g., '0' or ' ').
+ * @extra_c: Additional character (e.g., '+' or '-').
+ * @padd_start: Starting position for padding.
  *
- * Return: Number of written chars.
+ * This function writes a pointer to the buffer, considering the specified
+ * formatting flags, width, padding, and additional characters.
+ *
+ * Return: The number of characters written.
  */
+
+
 int write_pointer(char buffer[], int ind, int length,
 	int width, int flags, char padd, char extra_c, int padd_start)
 {
