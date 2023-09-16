@@ -1,16 +1,27 @@
 #include "main.h"
+
+
 /**
- * handle_print - Prints an argument based on its type
- * @fmt: Formatted string in which to print the arguments.
- * @list: List of arguments to be printed.
- * @ind: ind.
- * @buffer: Buffer array to handle print.
- * @flags: Calculates active flags
- * @width: get width.
- * @precision: Precision specification
- * @size: Size specifier
- * Return: 1 or 2;
+ * handle_print - Handles the formatting and printing of various data types.
+ * @fmt: The format string containing format specifiers.
+ * @ind: A pointer to the current position in the format string.
+ * @list: A va_list containing the variable argument list.
+ * @buffer: A character array where the formatted data is stored.
+ * @flags: Flags for formatting (e.g., minus, plus, zero-fill).
+ * @width: Minimum field width for printing.
+ * @precision: Minimum number of digits to be printed.
+ * @size: Size modifier for formatting (e.g., long, short).
+ *
+ * This function processes format specifiers in the format string, extracts
+ * corresponding arguments from the va_list, and prints the formatted data to
+ * the buffer. It supports a variety of format specifiers for different data
+ * types.
+ *
+ * Return: The number of characters written to the buffer or -1 on failure.
  */
+
+
+
 int handle_print(const char *fmt, int *ind, va_list list, char buffer[],
 	int flags, int width, int precision, int size)
 {
