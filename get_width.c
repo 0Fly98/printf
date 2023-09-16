@@ -1,13 +1,19 @@
 #include "main.h"
 
 /**
- * get_width - Calculates the width for printing
- * @format: Formatted string in which to print the arguments.
- * @i: List of arguments to be printed.
- * @list: list of arguments.
+ * get_width - Retrieves the minimum field width from a format string.
+ * @format: The format string being parsed.
+ * @i: A pointer to the current position in the format string.
+ * @list: A va_list containing the variable argument list.
  *
- * Return: width.
+ * This function searches for and extracts the minimum field width from the
+ * format string, updating the current position pointer accordingly. The width
+ * value can be specified as a numeric value or as an asterisk (*) followed by
+ * an argument from the va_list.
+ *
+ * Return: The extracted minimum field width value.
  */
+
 int get_width(const char *format, int *i, va_list list)
 {
 	int curr_i;
