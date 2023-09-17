@@ -13,61 +13,61 @@ void print_buffer(char buffer[], int *buff_ind);
 
 int _printf(const char *format, ...)
 {
-	int i, printed = 0, printed_chars = 0;
-	int flags, width, precision, size, buff_ind = 0;
-	va_list list;
+	int idx, count = 0, total_chars = 0;
+	int flags, width, precision, size, buffer_idx = 0;
+	va_list args;
 	char buffer[BUFF_SIZE];
 
 	if (format == NULL)
 		return (-1);
 
-	va_start(list, format);
+	va_start(args, format);
 
-	for (i = 0; format && format[i] != '\0'; i++)
+	for (idx = 0; format && format[idx] != '\0'; idx++)
 	{
-		if (format[i] != '%')
+		if (format[idx] != '%')
 		{
-			buffer[buff_ind++] = format[i];
-			if (buff_ind == BUFF_SIZE)
-				print_buffer(buffer, &buff_ind);
-			printed_chars++;
+			buffer[buffer_idx++] = format[idx];
+			if (buffer_idx == BUFF_SIZE)
+				print_buffer(buffer, &buffer_idx);
+			total_chars++;
 		}
 		else
 		{
-			print_buffer(buffer, &buff_ind);
-			flags = get_flags(format, &i);
-			width = get_width(format, &i, list);
-			precision = get_precision(format, &i, list);
-			size = get_size(format, &i);
-			++i;
-			printed = handle_print(format, &i, list, buffer,
+			print_buffer(buffer, &buffer_idx);
+			flags = get_flags(format, &idx);
+			width = get_width(format, &idx, args);
+			precision = get_precision(format, &idx, args);
+			size = get_size(format, &idx);
+			idx++;
+			count = handle_print(format, &idx, args, buffer,
 				flags, width, precision, size);
-			if (printed == -1)
+			if (count == -1)
 				return (-1);
-			printed_chars += printed;
+			total_chars += count;
 		}
 	}
 
-	print_buffer(buffer, &buff_ind);
+	print_buffer(buffer, &buffer_idx);
 
-	va_end(list);
+	va_end(args);
 
-	return (printed_chars);
+	return (total_chars);
 }
 
 /**
- * print_buffer - Prints the contents of a buffer to the standard output.
- * @buffer: A character array containing the data to be printed.
- * @buff_ind: A pointer to the current index in the buffer.
+ * output_buffer - Outputs the contents of a buffer to the standard output.
+ * @buf: A character array containing the data to be printed.
+ * @buf_idx: A pointer to the current index in the buffer.
  *
  * This function is used to flush the contents of the buffer to the standard
  * output when it is full or when printing is needed. After printing, the
  * buffer index is reset to zero.
  */
-void print_buffer(char buffer[], int *buff_ind)
+void output_buffer(char buf[], int *buf_idx)
 {
-	if (*buff_ind > 0)
-		write(1, &buffer[0], *buff_ind);
+	if (*buf_idx > 0)
+		write(1, &buf[0], *buf_idx);
 
-	*buff_ind = 0;
+	*buf_idx = 0;
 }
