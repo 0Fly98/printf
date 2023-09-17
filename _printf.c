@@ -1,22 +1,18 @@
 #include "main.h"
 
-void print_buffer(char buffer[], int *buff_ind);
+void output_to_buffer(char buf[], int *buf_idx);
 
 /**
- * _printf - Custom printf function that handles formatting and printing.
- * @format: A string containing format specifiers.
- * @...: Variable number of arguments to be formatted and printed.
- *
- * Return: The number of characters printed (excluding the null byte).
- *         Returns -1 on error.
+ * _printf - Printf function
+ * @format: format.
+ * Return: Printed chars.
  */
-
 int _printf(const char *format, ...)
 {
 	int idx, count = 0, total_chars = 0;
 	int flags, width, precision, size, buffer_idx = 0;
 	va_list args;
-	char buffer[BUFF_SIZE];
+	char buf[BUFF_SIZE];
 
 	if (format == NULL)
 		return (-1);
@@ -27,20 +23,20 @@ int _printf(const char *format, ...)
 	{
 		if (format[idx] != '%')
 		{
-			buffer[buffer_idx++] = format[idx];
+			buf[buffer_idx++] = format[idx];
 			if (buffer_idx == BUFF_SIZE)
-				print_buffer(buffer, &buffer_idx);
+				output_to_buffer(buf, &buffer_idx);
 			total_chars++;
 		}
 		else
 		{
-			print_buffer(buffer, &buffer_idx);
+			output_to_buffer(buf, &buffer_idx);
 			flags = get_flags(format, &idx);
 			width = get_width(format, &idx, args);
 			precision = get_precision(format, &idx, args);
 			size = get_size(format, &idx);
 			idx++;
-			count = handle_print(format, &idx, args, buffer,
+			count = handle_print(format, &idx, args, buf,
 				flags, width, precision, size);
 			if (count == -1)
 				return (-1);
@@ -48,7 +44,7 @@ int _printf(const char *format, ...)
 		}
 	}
 
-	print_buffer(buffer, &buffer_idx);
+	output_to_buffer(buf, &buffer_idx);
 
 	va_end(args);
 
@@ -56,15 +52,11 @@ int _printf(const char *format, ...)
 }
 
 /**
- * output_buffer - Outputs the contents of a buffer to the standard output.
- * @buf: A character array containing the data to be printed.
- * @buf_idx: A pointer to the current index in the buffer.
- *
- * This function is used to flush the contents of the buffer to the standard
- * output when it is full or when printing is needed. After printing, the
- * buffer index is reset to zero.
+ * output_to_buffer - Outputs the contents of the buffer if it exist
+ * @buf: Array of chars
+ * @buf_idx: Index at which to add next char, represents the length.
  */
-void output_buffer(char buf[], int *buf_idx)
+void output_to_buffer(char buf[], int *buf_idx)
 {
 	if (*buf_idx > 0)
 		write(1, &buf[0], *buf_idx);
