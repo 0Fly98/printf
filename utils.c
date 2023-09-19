@@ -4,7 +4,7 @@
  * is_printable - Evaluates if a character is printable
  * @character: Char to be evaluated.
  *
- * Return: 1 if c is printable, 0 otherwise
+ * Return: 1 if t is printable, 0 otherwise
  */
 int is_printable(char t)
 {
