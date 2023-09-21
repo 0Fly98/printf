@@ -1,7 +1,5 @@
 #include "main.h"
 
-/************************* PRINT UNSIGNED NUMBER *************************/
-
 /**
  * print_unsigned - Handles the formatting and printing of an unsigned integer.
  * @types: A va_list containing the variable argument list.
@@ -17,8 +15,6 @@
  *
  * Return: The number of characters written to the buffer.
  */
-
-
 int print_unsigned(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
 {
@@ -43,9 +39,7 @@ int print_unsigned(va_list types, char buffer[],
 	return (write_unsgnd(0, i, buffer, flags, width, precision, size));
 }
 
-/************* PRINT UNSIGNED NUMBER IN OCTAL ****************/
-
-/**
+ /**
  * print_octal - Handles the formatting and printing of an octal number.
  * @types: A va_list containing the variable argument list.
  * @buffer: A character array where the formatted data is stored.
@@ -60,10 +54,6 @@ int print_unsigned(va_list types, char buffer[],
  *
  * Return: The number of characters written to the buffer.
  */
-
-
-
-
 int print_octal(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
 {
@@ -95,8 +85,6 @@ int print_octal(va_list types, char buffer[],
 	return (write_unsgnd(0, i, buffer, flags, width, precision, size));
 }
 
-/************** PRINT UNSIGNED NUMBER IN HEXADECIMAL **************/
-
 /**
  * print_hexadecimal - Handles the formatting and
  *			printing of a hexadecimal number.
@@ -113,8 +101,6 @@ int print_octal(va_list types, char buffer[],
  *
  * Return: The number of characters written to the buffer.
  */
-
-
 int print_hexadecimal(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
 {
@@ -122,9 +108,7 @@ int print_hexadecimal(va_list types, char buffer[],
 		flags, 'x', width, precision, size));
 }
 
-/************* PRINT UNSIGNED NUMBER IN UPPER HEXADECIMAL **************/
-
-/**
+ /**
  * print_hexa_upper - Handles the formatting and printing
  *			of an uppercase hexadecimal number.
  * @types: A va_list containing the variable argument list.
@@ -140,9 +124,6 @@ int print_hexadecimal(va_list types, char buffer[],
  *
  * Return: The number of characters written to the buffer.
  */
-
-
-
 int print_hexa_upper(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
 {
@@ -150,10 +131,7 @@ int print_hexa_upper(va_list types, char buffer[],
 		flags, 'X', width, precision, size));
 }
 
-/************** PRINT HEXX NUM IN LOWER OR UPPER **************/
-
-
-/**
+ /**
  * print_hexa - Handles the formatting and printing of a hexadecimal number.
  * @types: A va_list containing the variable argument list.
  * @map_to: A character array mapping values to hexadecimal characters.
@@ -170,8 +148,6 @@ int print_hexa_upper(va_list types, char buffer[],
  *
  * Return: The number of characters written to the buffer.
  */
-
-
 int print_hexa(va_list types, char map_to[], char buffer[],
 	int flags, char flag_ch, int width, int precision, int size)
 {
