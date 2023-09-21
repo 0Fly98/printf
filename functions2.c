@@ -1,8 +1,5 @@
 #include "main.h"
 
-/****************** PRINT POINTER ******************/
-
-
 /**
  * print_pointer - Handles the formatting and printing of a pointer address.
  * @types: A va_list containing the variable argument list.
@@ -18,8 +15,6 @@
  *
  * Return: The number of characters written to the buffer.
  */
-
-
 int print_pointer(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
 {
@@ -60,10 +55,7 @@ int print_pointer(va_list types, char buffer[],
 		width, flags, padd, extra_c, padd_start));
 }
 
-/************************* PRINT NON PRINTABLE *************************/
-
-
-/**
+ /**
  * print_non_printable - Handles the formatting
  *			and printing of non-printable characters.
  * @types: A va_list containing the variable argument list.
@@ -79,9 +71,6 @@ int print_pointer(va_list types, char buffer[],
  *
  * Return: The number of characters written to the buffer.
  */
-
-
-
 int print_non_printable(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
 {
@@ -111,10 +100,7 @@ int print_non_printable(va_list types, char buffer[],
 	return (write(1, buffer, i + offset));
 }
 
-/************************* PRINT REVERSE *************************/
-
-
-/**
+ /**
  * print_reverse - Handles the formatting and printing of a reversed string.
  * @types: A va_list containing the variable argument list.
  * @buffer: A character array where the formatted data is stored (not used).
@@ -128,7 +114,6 @@ int print_non_printable(va_list types, char buffer[],
  *
  * Return: The number of characters written to the standard output.
  */
-
 
 int print_reverse(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
@@ -161,8 +146,6 @@ int print_reverse(va_list types, char buffer[],
 	}
 	return (count);
 }
-/************************* PRINT A STRING IN ROT13 *************************/
-
 /**
  * print_rot13string - Handles the formatting
  *			and printing of a ROT13-encoded string.
@@ -179,9 +162,6 @@ int print_reverse(va_list types, char buffer[],
  *
  * Return: The number of characters written to the standard output.
  */
-
-
-
 int print_rot13string(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
 {
