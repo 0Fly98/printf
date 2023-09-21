@@ -1,6 +1,5 @@
 #include "main.h"
 
-/************************* PRINTS CHAR *************************/
 /**
  * @function print_char - Function to print a character.
  * @param types - A list of argument types.
@@ -18,8 +17,7 @@ int print_char(va_list types, char buffer[],
 
 	return (handle_write_char(c, buffer, flags, width, precision, size));
 }
-/************************* PRINTS A STRING *************************/
-/**
+ /**
  * @function print_string - Function for printing a string.
  * @param types - An array of argument types.
  * @param buffer - An array buffer used for handling print operations.
@@ -44,7 +42,7 @@ int print_string(va_list types, char buffer[],
 	{
 		str = "(null)";
 		if (precision >= 6)
-			str = " ";
+			str = "      ";
 	}
 
 	while (str[length] != '\0')
@@ -73,8 +71,7 @@ int print_string(va_list types, char buffer[],
 
 	return (write(1, str, length));
 }
-/************************* PRINT PERCENT SIGN *************************/
-/**
+ /**
  * @function print_percent - Function for printing a percent sign.
  * @param types - An array of argument types.
  * @param buffer - An array buffer used for handling print operations.
@@ -96,8 +93,7 @@ int print_percent(va_list types, char buffer[],
 	return (write(1, "%%", 1));
 }
 
-/************************* PRINT INT *************************/
-/**
+ /**
  * @function print_int - Function for printing an integer.
  * @param types - An array of argument types.
  * @param buffer - An array buffer used for handling print operations.
@@ -140,7 +136,6 @@ int print_int(va_list types, char buffer[],
 	return (write_number(is_negative, i, buffer, flags, width, precision, size));
 }
 
-/************************* PRINT BINARY *************************/
 /**
  * @function print_binary - Function for printing an unsigned number.
  * @param types - An array of argument types.
@@ -165,7 +160,7 @@ int print_binary(va_list types, char buffer[],
 	UNUSED(size);
 
 	n = va_arg(types, unsigned int);
-	m = 2147483648; /* (2 ^ 31) */
+	m = 2147483648;
 	a[0] = n / m;
 	for (i = 1; i < 32; i++)
 	{
