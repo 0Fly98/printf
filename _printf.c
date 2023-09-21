@@ -30,7 +30,6 @@ int _printf(const char *format, ...)
 			buffer[buff_ind++] = format[i];
 			if (buff_ind == BUFF_SIZE)
 				print_buffer(buffer, &buff_ind);
-			/* write(1, &format[i], 1);*/
 			printed_chars++;
 		}
 		else
@@ -65,6 +64,7 @@ int _printf(const char *format, ...)
  * output when it is full or when printing is needed. After printing, the
  * buffer index is reset to zero.
  */
+
 void print_buffer(char buffer[], int *buff_ind)
 {
 	if (*buff_ind > 0)
